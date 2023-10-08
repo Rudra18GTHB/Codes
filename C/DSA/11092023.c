@@ -13,6 +13,7 @@ void delete_element_last();
 void delete_element_first();
 void count_node();
 void desired_insert();
+void insert_at_end();
 
 void main()
 {
@@ -25,6 +26,7 @@ void main()
         printf("4.Delete First\n");
         printf("5.Count Node\n");
         printf("6.Insert in Desired Position\n");
+        printf("7. Insert at End\n");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -48,6 +50,8 @@ void main()
         case 6:
             desired_insert();
             break;
+        case 7:
+            insert_at_end();
         default:
             printf("\nInvalid choice\n");
             break;
@@ -121,6 +125,26 @@ void delete_element_first(){
         head=m->add;
         m->add=NULL;
         free(m);
+    }
+}
+
+void insert_at_end(){
+    if (head==NULL){
+        printf("List is Empty cannot insert value at end of list \n");
+    }
+    else{
+        int data;
+        printf("Enter the elemnt to be inserted: ");
+        scanf("%d",&data);
+        struct linked *ptr, *temp;
+        temp = (struct node*)malloc(sizeof(struct linked));
+        temp->val = data;
+        temp->add = NULL;
+        ptr = head;
+        while(ptr->add !=NULL){ 
+            ptr = ptr->add;    
+        }
+        ptr->add = temp; 
     }
 }
 
