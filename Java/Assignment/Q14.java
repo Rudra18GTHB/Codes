@@ -1,7 +1,7 @@
 class Person{
-    String mName;
-    String mBirthDate;
-    String mSex;
+    private String mName;
+    private String mBirthDate;
+    private String mSex;
 
     public Person(String name, String birthDate, String sex) {
         this.mName = name;
@@ -21,8 +21,8 @@ class Person{
 }
 
 class Student extends Person implements GradTeachingFellow{
-    String add;
-    String dept;
+    private String add;
+    private String dept;
 
     public Student(String name, String birthDate, String sex,String add, String dept){
         super(name, birthDate, sex);
@@ -42,9 +42,9 @@ class Student extends Person implements GradTeachingFellow{
 }
 
 class Teacher extends Person implements GradTeachingFellow{
-    int rank;
-    String dept;
-    String course;
+    private int rank;
+    private String dept;
+    private String course;
 
     public Teacher(String name, String birthDate, String sex,int rank, String dept, String course){
         super(name, birthDate, sex);

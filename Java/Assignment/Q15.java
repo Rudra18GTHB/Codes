@@ -6,7 +6,7 @@ interface Pet{
 
 class Animal {
 
-    int legs;
+    private int legs;
 
     public Animal( int legs){
         this.legs = legs;
@@ -31,7 +31,7 @@ class Spider extends Animal{
 
 class Cat extends Animal implements Pet{
 
-    String Name="Cat";
+    private String Name="Cat";
 
     public Cat(String Name){
         super(4);
@@ -53,7 +53,7 @@ class Cat extends Animal implements Pet{
 
 class Fish extends Animal implements Pet{
 
-    String Name="Fish";
+    private String Name="Fish";
 
     public Fish(){
         super(0);
