@@ -6,7 +6,7 @@ interface Pet{
 
 class Animal {
 
-    private int legs;
+    int legs;
 
     public Animal( int legs){
         this.legs = legs;
