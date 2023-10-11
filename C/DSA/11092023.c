@@ -4,7 +4,6 @@
 struct linked{
     int val;
     struct linked *add;
-
 }*head;
 
 void list_insert(int x);
