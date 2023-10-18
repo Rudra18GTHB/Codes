@@ -61,15 +61,20 @@ void enqueve(){
 void clearqueve(){
     que.r=-1;
     que.f=0;
-    printf("Queve is Empty!\n");
+    printf("Queve is now Empty!\n");
 }
 
 void delqueve(){
-    if (que.r==-1)
+    if (que.r==-1 || que.f>que.r)
     {
         printf("Empty Queve\n");
     }else{
-        ++que.f;
+        if (que.f==que.r){
+            clearqueve();
+        }
+        else{
+            ++que.f;
+        }
     }
 }
 
@@ -79,7 +84,7 @@ void display(){
     }
     else{
         printf("Elements on queue are: ");
-        for(int i=0;i<=que.r;i++){
+        for(int i=que.f;i<=que.r;i++){
             printf("%d ",que.val[i]);
         }
     }
