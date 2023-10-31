@@ -81,12 +81,12 @@ void list_insert(int x){
 }
 
 void display_list(){
-    struct linked *m;
     if(head==NULL)
     {
         printf("List is empty!\n");
     }
     else{
+        struct linked *m;
         m=head;
         while(m->add!=NULL)
         {
@@ -98,21 +98,27 @@ void display_list(){
 }
 
 void delete_element_last(){
-    struct linked *a,*b;
     if (head==NULL)
     {
         printf("List is empty\n");
     }
     else{
+        struct linked *a,*b;
         a=head;
-        b=head->add;
-        while (b->add!=NULL)
-        {
-            a=b;
-            b=b->add;
+        if(a->add==NULL){
+            free(a);
+            head=NULL;
         }
-        a->add=NULL;
-        free(b);
+        else{
+            b=head->add;
+            while (b->add!=NULL)
+            {
+                a=b;
+                b=b->add;
+            }
+            a->add=NULL;
+            free(b);
+        }
     }
 }
 
@@ -124,9 +130,15 @@ void delete_element_first(){
     else{
         struct linked *m;
         m=head;
-        head=m->add;
-        m->add=NULL;
-        free(m);
+        if(m->add==NULL){
+            free(m);
+            head=NULL;
+        }
+        else{
+            head=m->add;
+            m->add=NULL;
+            free(m);
+        }
     }
 }
 
