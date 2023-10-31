@@ -89,13 +89,19 @@ void delete_element(){
     }
     else{
         a=head;
-        b=head->add;
-        while (b->add!=head)
-        {
-            a=b;
-            b=b->add;
+        if(a->add==head){
+            free(a);
+            head=NULL;
         }
-        a->add=head;
-        free(b);
+        else{
+            b=head->add;
+            while (b->add!=head)
+            {
+                a=b;
+                b=b->add;
+            }
+            a->add=head;
+            free(b);
+        }
     }
 }
