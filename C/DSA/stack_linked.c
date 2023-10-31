@@ -70,14 +70,19 @@ void pop(){
     }
     else{
         a=head;
-        b=head->add;
-        while (b->add!=NULL)
-        {
-            a=b;
-            b=b->add;
+        if(a->add==NULL){
+            free(a);
+            head=NULL;
         }
-        a->add=NULL;
-        free(b);
+        else{
+            b=head->add;
+            while (b->add!=NULL){
+                a=b;
+                b=b->add;
+            }
+            a->add=NULL;
+            free(b);
+        }
     }
 }
 
