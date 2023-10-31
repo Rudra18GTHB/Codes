@@ -38,7 +38,7 @@ void main(){
             case 5:
                 break;
             default:
-                printf("Invalid option");
+                printf("Invalid option\n");
                 break;
         }
         if (option==5){
@@ -75,13 +75,20 @@ void dlinked_remove(){
     else{
         struct dlinked *m,*k;
         m=head;
-        k=head->next;
-        while(k->next!=NULL){
-            m=k;
-            k=k->next;
+        if(m->next==NULL){
+            free(m);
+            head=NULL;
         }
-        m->next=NULL;
-        free(k);
+        else{
+            k=head->next;
+            while(k->next!=NULL){
+                m=k;
+                k=k->next;
+            }
+            m->next=NULL;
+            free(k);
+        }
+        
     }
 }
 
