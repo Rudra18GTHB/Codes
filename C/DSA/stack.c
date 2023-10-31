@@ -30,7 +30,7 @@ void push(){
 
 void pop(){
     if(stk.h==-1){
-        printf("Stack is Empty");
+        printf("Stack is Empty\n");
     }
     else{
         --stk.h;
@@ -55,14 +55,14 @@ void chooice(){
         case 3:
             break;
         default:
-            printf("Invalid Input");
+            printf("Invalid Input\n");
             chooice();
     }
 }
 
 void display(){
     if (stk.h==-1){
-        printf("Stack is Empty");
+        printf("Stack is Empty\n");
     }
     else{
         printf("Elements on stack are: ");
