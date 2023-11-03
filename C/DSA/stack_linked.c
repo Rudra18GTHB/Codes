@@ -58,33 +58,23 @@ void push(){
         while(m->add!=NULL){
             m=m->add;
         }
-        m->add=k;
+        k->add=m;
+        head=k;
     }
 }
 
 void pop(){
     struct linked *a,*b;
-    if (head==NULL)
-    {
+    if (head==NULL){
         printf("List is empty\n");
     }
     else{
         a=head;
-        if(a->add==NULL){
-            free(a);
-            head=NULL;
-        }
-        else{
-            b=head->add;
-            while (b->add!=NULL){
-                a=b;
-                b=b->add;
-            }
-            a->add=NULL;
-            free(b);
-        }
+        head=a->add;
+        free(a);
     }
 }
+
 
 void display(){
     struct linked *m;
