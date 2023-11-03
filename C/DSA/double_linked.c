@@ -88,7 +88,6 @@ void dlinked_remove(){
             m->next=NULL;
             free(k);
         }
-        
     }
 }
 
