@@ -125,22 +125,16 @@ void delete_element_last(){
 void delete_element_first(){
     if (head==NULL)
     {
-        printf("\nList is empty\n");
+        printf("List is empty\n");
     }
     else{
         struct linked *m;
         m=head;
-        if(m->add==NULL){
-            free(m);
-            head=NULL;
-        }
-        else{
-            head=m->add;
-            m->add=NULL;
-            free(m);
-        }
+        head=m->add;
+        free(m);
     }
 }
+
 
 void insert_at_end(){
     if (head==NULL){
@@ -163,6 +157,9 @@ void insert_at_end(){
 }
 
 void count_node(){
+    if(head==NULL){
+        printf("List is empty\n");
+    }
     int count=0;
     struct linked *m;
     m=head;
