@@ -64,11 +64,12 @@ void push(){
 }
 
 void pop(){
-    struct linked *a,*b;
+    
     if (head==NULL){
         printf("List is empty\n");
     }
     else{
+        struct linked *a;
         a=head;
         head=a->add;
         free(a);
