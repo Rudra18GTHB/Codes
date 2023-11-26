@@ -20,5 +20,6 @@ public class Q3 {
         double Breath = read.nextDouble();
         ReactangleArea rec1 = new ReactangleArea(Length,Breath);
         System.out.println("Area of reactangle is: "+rec1.Area());
+        read.close();
     }
 }
