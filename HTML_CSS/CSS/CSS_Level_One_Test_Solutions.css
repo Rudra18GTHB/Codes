@@ -79,3 +79,6 @@ a background of blue and a 4px dashed yellow border.*/
 There is a link to Google on the page in the list.
 Can you figure out how to change the color if you click on the link?
 (Hint: Google "css visited") */
+a:visited{
+  color: blue;
+}
