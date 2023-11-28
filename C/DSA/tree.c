@@ -36,3 +36,20 @@ void main(){
         }
     }
 }
+
+void node_insert(){
+    int x;
+    printf("Enter the element:");
+    scanf("%d",&x);
+    if (root==NULL){
+        root->data=x;
+        root->right=root->left=NULL;
+    }
+    else{
+        struct node *NewNode;
+        NewNode = (struct node* )malloc(sizeof(struct node));
+        NewNode->data=x;
+        NewNode->right=NewNode->left=NULL;
+
+    }
+}
