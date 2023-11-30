@@ -1,0 +1,135 @@
+<!--drop down css-- > .hamburger,
+.close {
+    font-size: 2rem;
+    color: #00bff3;
+}
+header {
+    margin: 1rem;
+}
+nav {
+    border-bottom: 3px solid #00bff3;
+    border-top: 3px solid #00bff3;
+    background-color: #eee;
+    background-image: url("https://assets.codepen.io/296057/lil-graydots.png");
+    padding: 1rem;
+    position: absolute;
+  /* a higher z-index put navbar above hamburger */
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  /* style the bar in one cell and the close button in the other */
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+  /* animate slide up/down */
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+}
+nav:target {
+    transform: translateY(0);
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 1.5rem;
+  /* styles the links in the navbar */
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+}
+nav a {
+    color: #00bff3;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem 1rem;
+}
+nav a:focus {
+    background-color: #f0c808;
+    color: black;
+}
+nav a:hover {
+    background-color: #f0c808;
+    color: #ff583d;
+    background-image: url("https://assets.codepen.io/296057/lil-yellowdots.png");
+}
+.close:hover {
+    background-image: none;
+    background-color: transparent;
+}
+.active {
+    color: #ff583d;
+    background-color: #c5e5ed;
+    background-image: url("https://assets.codepen.io/296057/lil-bluedots.png");
+}
+/* second level nav styles, commented out initially */
+nav ul ul {
+    font-size: 1.2rem;
+    border-left: 3px solid #ddd;
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;
+}
+nav ul ul a {
+    color: #0081a5;
+}
+
+@media (min-width: 750px) {
+    header {
+    margin: 1rem auto;
+    }
+    nav {
+    padding: 0;
+    position: static;
+    height: auto;
+    transform: translateY(0);
+    overflow: visible;
+    }
+    .hamburger,
+    .close {
+    display: none;
+    }
+    nav ul {
+    flex-flow: row wrap;
+    justify-content: center;
+    }
+    .dropdown {
+        position: relative;
+    }
+    .dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-image: url("https://assets.codepen.io/296057/lil-bluedots.png");
+    border-left: 3px solid #00bff3;
+    border-right: 3px solid #00bff3;
+    border-bottom: 3px solid #00bff3;
+    font-size: 1.5rem;
+    width: 100%;
+    } 
+    .dropdown:hover .dropdown-menu {
+    display: block;
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
