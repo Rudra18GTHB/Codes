@@ -13,6 +13,9 @@ void delete_element_first();
 void count_node();
 void desired_insert();
 void insert_at_end();
+int count, i;
+void reverse_print(struct linked *b);
+void delete_ith_element(struct linked *h);
 
 void main()
 {
@@ -26,7 +29,9 @@ void main()
         printf("5.Count Node\n");
         printf("6.Insert in Desired Position\n");
         printf("7. Insert at End\n");
-        printf("8. Exit\n");
+        printf("8. Delete ith Element From Last\n");
+        printf("9. Display Reverse\n");
+        printf("10. Exit\n");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -52,13 +57,24 @@ void main()
             break;
         case 7:
             insert_at_end();
+            break;
         case 8:
+            printf("\nDelete ith elemnent\n");
+            printf("Enter the value of i: ");
+            scanf("%d",&i);
+            count=0;
+            delete_ith_element(head);
+            break;
+        case 9:
+            reverse_print(head);
+            break;
+        case 10:
             break;
         default:
             printf("\nInvalid choice\n");
             break;
         }
-        if (choice == 8){
+        if (choice == 10){
             break;
         }
     }
@@ -187,4 +203,26 @@ void desired_insert(){
     k->add=m->add;
     m->add=k;
     display_list();
-}                                                                                                                                                                                                       
+}
+
+void reverse_print(struct linked *b){
+    if(b->add!=NULL){
+        reverse_print(b->add);
+    }
+    printf("%d ", b->val);
+}
+
+void delete_ith_element(struct linked *h){
+    if(h->add!=NULL){
+        h=h->add;
+        delete_ith_element(h);
+        count++;
+        if(count==(i+1)){
+            struct linked *a,*b;
+            a=h;
+            b=h->add;
+            a->add=b->add;
+            free(b);
+        }
+    }
+}
