@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node {
     int data;
@@ -6,7 +7,12 @@ struct node {
     struct node *left;
 } *root;
 
-void main(){
+struct node* node_insert(struct node* root, int data);
+void node_display_preorder(struct node* root);
+
+
+int main(){
+    int x;
     int option;
     while(1){
         printf("Select option\n");
@@ -17,13 +23,12 @@ void main(){
         scanf("%d",&option);
         switch (option){
             case 1:
-                node_insert();
-                break;
-            case 2:
-                node_remove();
+                printf("Enter the element:");
+                scanf("%d",&x);
+                root=node_insert(root,x);
                 break;
             case 3:
-                node_display();
+                node_display_preorder(root);
                 break;
             case 4:
                 break;
@@ -35,21 +40,30 @@ void main(){
             break;
         }
     }
+    return 0;
 }
 
-void node_insert(){
-    int x;
-    printf("Enter the element:");
-    scanf("%d",&x);
+struct node* node_insert(struct node* root,int data){
     if (root==NULL){
-        root->data=x;
-        root->right=root->left=NULL;
+        root= (struct node *)malloc(sizeof(struct node));
+        root->data=data;
+        root->left=root->right=NULL;
     }
     else{
-        struct node *NewNode;
-        NewNode = (struct node* )malloc(sizeof(struct node));
-        NewNode->data=x;
-        NewNode->right=NewNode->left=NULL;
+        if (data< root->data){
+            root->left= node_insert(root->left,data);
+        }
+        else if(data> root->data){
+            root->right=node_insert(root->right,data);
+        }
+    }
+    return root;
+}
 
+void node_display_preorder(struct node* root){
+    if(root!=NULL){
+        printf("%d ",root->data);
+        node_display(root->left);
+        node_display(root->right);
     }
 }
