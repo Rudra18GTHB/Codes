@@ -9,13 +9,14 @@ struct node {
 
 struct node* node_insert(struct node* root, int data);
 void node_display_preorder(struct node* root);
-
+void node_display_inorder(struct node* root);
+void node_display_postorder(struct node* root);
 
 int main(){
     int x;
     int option;
     while(1){
-        printf("Select option\n");
+        printf("\nSelect option\n");
         printf("1. Insert\n");
         printf("2. Delete\n");
         printf("3. Display\n");
@@ -28,7 +29,12 @@ int main(){
                 root=node_insert(root,x);
                 break;
             case 3:
+                printf("Preorder Traversal\n");
                 node_display_preorder(root);
+                printf("\nInorder Traversal\n");
+                node_display_inorder(root);
+                printf("\nPostorder Traversal\n");
+                node_display_postorder(root);
                 break;
             case 4:
                 break;
@@ -63,7 +69,23 @@ struct node* node_insert(struct node* root,int data){
 void node_display_preorder(struct node* root){
     if(root!=NULL){
         printf("%d ",root->data);
-        node_display(root->left);
-        node_display(root->right);
+        node_display_preorder(root->left);
+        node_display_preorder(root->right);
+    }
+}
+
+void node_display_inorder(struct node* root){
+    if(root!=NULL){
+        node_display_inorder(root->left);
+        printf("%d ",root->data);
+        node_display_inorder(root->right);
+    }
+}
+
+void node_display_postorder(struct node* root){
+    if(root!=NULL){
+        node_display_postorder(root->left);
+        node_display_postorder(root->right);
+        printf("%d ",root->data);
     }
 }
