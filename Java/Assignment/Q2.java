@@ -15,7 +15,7 @@ class Employee{
     }
 }
 
-public class Q13 {
+public class Q2 {
     public static void main(String[] args) {
         Employee Rudra = new Employee("CSE",101);
         System.out.println(Rudra.getDept());

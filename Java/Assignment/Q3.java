@@ -141,7 +141,7 @@ class GraduateTeachingFellow extends PersonClass implements Student, Teacher {
     }
 }
 
-public class Q14 {
+public class Q3 {
 	public static void main(String[] args) {
 		
 	StudentClass std = new StudentClass("Pintu Jain","01-09-2003","Male","CSE","Raigarh");

@@ -75,7 +75,7 @@ class Fish extends Animal implements Pet{
     }
 }
 
-public class Q15 {
+public class Q4 {
     public static void main(String[] args) {
         Animal a = new Animal(4);
         Spider s = new Spider();

@@ -14,7 +14,7 @@ class  Animal {
     }
 
 }
-public class Q12 {
+public class Q1 {
     public static void main(String[] args) {
         Animal Rohan = new Animal("Roar","Tiger");
         System.out.println(Rohan.getSound());
