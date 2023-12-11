@@ -144,11 +144,10 @@ class GraduateTeachingFellow extends PersonClass implements Student, Teacher {
 public class Q3 {
 	public static void main(String[] args) {
 		
-	StudentClass std = new StudentClass("Pintu Jain","01-09-2003","Male","CSE","Raigarh");
+	StudentClass std = new StudentClass("Rudra Kashyap","18-09-2004","Male","CSE","Raigarh");
 	TeacherClass tec = new TeacherClass("Saroj Sir", "DD-MM-YYYY","Male","Sr. Associate Professor","CSE","OOPs using JAVA");
 		
-	GraduateTeachingFellow gtf1 = new GraduateTeachingFellow(std);
-	GraduateTeachingFellow gtf2 = new GraduateTeachingFellow(tec);
+	GraduateTeachingFellow gtf1 = new GraduateTeachingFellow(tec);
 		
 	System.out.println("Details of student are :-");
         System.out.println("Name = " + std.getName());
@@ -173,14 +172,5 @@ public class Q3 {
         System.out.println("Address = " + gtf1.getAddress());
         System.out.println("Department = " + gtf1.getDepartment());
         System.out.println("Course = " + gtf1.getCourseInfo());
-
-        System.out.println("\n\nGraduate Teaching Fellow 2 Details are :- ");
-        System.out.println("Name = " + gtf2.getName());
-        System.out.println("Birth Date = " + gtf2.getBirthdate());
-        System.out.println("Sex = " + gtf2.getSex());
-        System.out.println("Address = " + gtf2.getAddress());
-        System.out.println("Rank = " + gtf2.getRank());
-        System.out.println("Department = " + gtf2.getDepartment());
-        System.out.println("Course = " + gtf2.getCourseInfo());
 	}
 }

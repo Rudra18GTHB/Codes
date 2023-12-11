@@ -35,10 +35,6 @@ public class Q7 {
             array[i]=rand.nextInt(500);
         }
 
-        for(int j=0; j<array.length; j++){
-            System.out.println(array[j]+" ");
-        }
-
         MinValue T1 = new MinValue(array, 0, 250);
         T1.start();
         MinValue T2 = new MinValue(array, 250, 500);

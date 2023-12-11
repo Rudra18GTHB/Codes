@@ -36,10 +36,6 @@ public class Q6 {
             array[i]=rand.nextInt(500);
         }
 
-        for(int j=0; j<array.length; j++){
-            System.out.println(array[j]+" ");
-        }
-
         MaxValue T1 = new MaxValue(array, 0, 250);
         T1.start();
         MaxValue T2 = new MaxValue(array, 250, 500);
