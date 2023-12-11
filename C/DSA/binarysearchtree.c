@@ -11,7 +11,6 @@ struct node* node_insert(struct node* root, int data);
 void node_display_preorder(struct node* root);
 void node_display_inorder(struct node* root);
 void node_display_postorder(struct node* root);
-void node_display_levelorder(struct node* root);
 
 int main(){
     int x;
@@ -36,8 +35,6 @@ int main(){
                 node_display_inorder(root);
                 printf("\nPostorder Traversal\n");
                 node_display_postorder(root);
-                printf("\nLevelorder Traversal\n");
-                node_display_levelorder(root);
                 break;
             case 4:
                 break;
@@ -82,5 +79,13 @@ void node_display_inorder(struct node* root){
         node_display_inorder(root->left);
         printf("%d ",root->data);
         node_display_inorder(root->right);
+    }
+}
+
+void node_display_postorder(struct node* root){
+    if(root!=NULL){
+        node_display_postorder(root->left);
+        node_display_postorder(root->right);
+        printf("%d ",root->data);
     }
 }
