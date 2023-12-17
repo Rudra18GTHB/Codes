@@ -6,14 +6,18 @@ int main(int argc, char const *argv[])
     int low=0;
     int high=9;
     int searchelement=72;
+    int count=0;
     while(low<=high){
         int m=low+(high-low)/2;
+        ++count;
         if (arr[m]==searchelement){
             printf(" Element is found at index %d",m);
+            printf("\nTotal Number of comparisons: %d",count);
             return 0;
         }
 
         else{
+            ++count;
             if(arr[m] < searchelement){
                 low=m+1;
             }

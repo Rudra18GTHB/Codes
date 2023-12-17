@@ -5,7 +5,7 @@ int main()
     int min, temp, n = 5;
     for (int i = 0; i < n-1; i++){
         min = i;
-        for(int j = i; j<n; j++){
+        for(int j = i+1; j<n; j++){
             if (a[j]< a[min]){
                 min = j;
             }
