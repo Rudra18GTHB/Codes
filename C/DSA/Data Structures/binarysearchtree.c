@@ -107,7 +107,7 @@ void enqueue(struct node* root){
     if (que.r==7){
         printf("Queve Overloaded!\n");
     }else{
-        que.val[++que.r]=root->data;
+        que.val[++que.r]=root;
     }
 }
 
@@ -119,13 +119,13 @@ struct node* dequeue(){
     else{
         struct node* element;
         if (que.f==que.r){
-            element->data=que.val[que.f];
+            element=que.val[que.f];
             que.f=0;
             que.r=-1;
             return element;
         }
         else{
-            element->data= que.val[que.f];
+            element= que.val[que.f];
             ++que.f;
             return element;
         }
