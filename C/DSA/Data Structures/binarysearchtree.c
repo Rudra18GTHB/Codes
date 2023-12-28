@@ -7,12 +7,23 @@ struct node {
     struct node *left;
 } *root;
 
+struct queue{
+    int val[8];
+    int f,r;
+}que;
+
 struct node* node_insert(struct node* root, int data);
 void node_display_preorder(struct node* root);
 void node_display_inorder(struct node* root);
 void node_display_postorder(struct node* root);
+void node_display_levelorder(struct node* root);
+void enqueue(struct node* root);
+int isEmpty();
+struct node* dequeue();
 
 int main(){
+    que.r=-1;    
+    que.f=0;
     int x;
     int option;
     while(1){
@@ -35,6 +46,8 @@ int main(){
                 node_display_inorder(root);
                 printf("\nPostorder Traversal\n");
                 node_display_postorder(root);
+                printf("\nLevelorder Traversal\n");
+                node_display_levelorder(root);
                 break;
             case 4:
                 break;
@@ -87,5 +100,62 @@ void node_display_postorder(struct node* root){
         node_display_postorder(root->left);
         node_display_postorder(root->right);
         printf("%d ",root->data);
+    }
+}
+
+void enqueue(struct node* root){
+    if (que.r==7){
+        printf("Queve Overloaded!\n");
+    }else{
+        que.val[++que.r]=root->data;
+    }
+}
+
+struct node* dequeue(){
+    if (que.r==-1 || que.f>que.r)
+    {
+        printf("Empty Queve\n");
+    }
+    else{
+        struct node* element;
+        if (que.f==que.r){
+            element->data=que.val[que.f];
+            que.f=0;
+            que.r=-1;
+            return element;
+        }
+        else{
+            element->data= que.val[que.f];
+            ++que.f;
+            return element;
+        }
+    }
+}
+
+int isEmpty(){
+    if (que.r==-1 || que.f>que.r)
+    {
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void node_display_levelorder(struct node* root){
+    struct node* temp;
+    if(root==NULL){
+        return;
+    }
+    enqueue(root);
+    while(!isEmpty()){
+        temp=dequeue();
+        printf("%d ",temp->data);
+        if(temp->right){
+            enqueue(temp->right);
+        }
+        if(temp->left){
+            enqueue(temp->left);
+        }
     }
 }
