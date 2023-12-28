@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-//queue using linked list
-struct linked{
+//queue using node list
+struct node{
    int val;
-   struct linked *add;
+   struct node *add;
 }*head,*tail;
 
-void clearqueve();
-void enqueve();
-void delqueve();
+void clearqueue();
+void enqueue();
+void delqueue();
 void display();
 
 void main()
@@ -26,13 +26,13 @@ void main()
       switch (option)
       {
          case 1:
-            clearqueve();
+            clearqueue();
             break;
          case 2:
-            enqueve();
+            enqueue();
             break;
          case 3:
-            delqueve();
+            delqueue();
             break;
          case 4:
             display();
@@ -49,17 +49,17 @@ void main()
    }
 }
 
-void clearqueve(){
+void clearqueue(){
    head=tail=NULL;
-   printf("Queve is now Empty!\n");
+   printf("Queue is now Empty!\n");
 }
 
-void enqueve(){
-   struct linked *k,*m;
+void enqueue(){
+   struct node *k,*m;
    int x;
    printf("Enter element:");
    scanf("%d",&x);
-   k=(struct linked*)malloc(sizeof(struct linked));
+   k=(struct node*)malloc(sizeof(struct node));
    k->val=x;
    k->add=NULL;
    if (head==NULL){
@@ -75,20 +75,25 @@ void enqueve(){
    }
 }
 
-void delqueve(){
+void delqueue(){
    if (head==NULL){
       printf("Queue is Empty!\n");
    }
    else{
-      struct linked *m;
-      m=head;
-      head=m->add;
-      free(m);
+      if(head==tail){
+         head=tail=NULL;
+      }
+      else{
+         struct node *m;
+         m=head;
+         head=m->add;
+         free(m);
+      }
    }
 }
 
 void display(){
-   struct linked *m;
+   struct node *m;
    if(head==NULL)
    {
       printf("Queue is empty!\n");
