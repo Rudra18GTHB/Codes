@@ -2,18 +2,16 @@
 
 int main()
 {
-    int a[]={85,79,6,100,56};
+    int a[]={63,79,6,100,56};
     int n=5;
     int key,j;
-    int ccount=0;
-    int scount=0;
     for (int i = 1; i < n; i++)
     {
         key=a[i];
         j=i;
-        while(j>=0 && a[j-1]>key){
-            a[j]=a[j-1];
-            j--;
+        while(j>=0 && a[j-1]>key){ //Checking two conditions the previous elemnt is larger or not and stop the loop if reaching at the end
+            a[j]=a[j-1]; 
+            j--;   //Decrementing to check with next previous element
         }
         a[j]=key;
     }
