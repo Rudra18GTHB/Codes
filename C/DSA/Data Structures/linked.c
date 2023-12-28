@@ -16,6 +16,7 @@ void insert_at_end();
 int count, i;
 void reverse_print(struct linked *b);
 void delete_ith_element(struct linked *h);
+void Reverse();
 
 void main()
 {
@@ -31,7 +32,8 @@ void main()
         printf("7. Insert at End\n");
         printf("8. Delete ith Element From Last\n");
         printf("9. Display Reverse\n");
-        printf("10. Exit\n");
+        printf("10. Reverse\n");
+        printf("11. Exit\n");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -69,12 +71,15 @@ void main()
             reverse_print(head);
             break;
         case 10:
+            Reverse();
+            break;
+        case 11:
             break;
         default:
             printf("\nInvalid choice\n");
             break;
         }
-        if (choice == 10){
+        if (choice == 11){
             break;
         }
     }
@@ -151,7 +156,6 @@ void delete_element_first(){
     }
 }
 
-
 void insert_at_end(){
     if (head==NULL){
         printf("List is Empty cannot insert value at end of list \n");
@@ -225,4 +229,16 @@ void delete_ith_element(struct linked *h){
             free(b);
         }
     }
+}
+
+void Reverse(){
+    struct linked* prev=NULL;
+    struct linked* next=NULL;
+    while(head!=NULL){
+        next=head->add;
+        head->add=prev;
+        prev=head;
+        head= next;
+    }
+    head=prev;
 }
