@@ -54,11 +54,7 @@ void push(){
     if (head==NULL)
         head=k;
     else{
-        m=head;
-        while(m->add!=NULL){
-            m=m->add;
-        }
-        k->add=m;
+        k->add=head;
         head=k;
     }
 }
@@ -75,7 +71,6 @@ void pop(){
         free(a);
     }
 }
-
 
 void display(){
     struct linked *m;
