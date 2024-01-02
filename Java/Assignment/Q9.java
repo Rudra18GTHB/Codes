@@ -1,12 +1,15 @@
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Q9 {
     public static void main(String[] args) {
         try {
             FileWriter mywrite = new FileWriter("Student_info.txt");
-            mywrite.write("Hello, My name is Rudra Kashyap. I am a student of OP Jindal University");
+            Scanner scan = new Scanner(System.in);
+            String Sentence = scan.nextLine();
+            mywrite.write(Sentence);
             mywrite.close();
         } catch (IOException e) {
             System.out.println("Error Occured");
