@@ -7,11 +7,9 @@ int main()
 }
 
 void towerofhanoi(int n, char src, char aux, char dest){
-    if(n==1){
-        printf("Disk 1 Moved from %c to %c\n",src,dest);
-        return;
+    if(n>=1){
+        towerofhanoi(n-1, src, dest, aux);
+        printf("Disk Moved from %c to %c\n",src,aux);
+        towerofhanoi(n-1,dest,aux,src);
     }
-    towerofhanoi(n-1, src, dest, aux);
-    printf("Disk %d Moved from %c to %c\n",n,src,dest);
-    towerofhanoi(n-1,aux,src,dest);
 }
