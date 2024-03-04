@@ -1,0 +1,33 @@
+form{
+    background-color: antiquewhite;
+    width: 300px;
+    margin: auto;
+    padding: 20px 100px 100px 100px;
+    border: solid black 1px;
+}
+h3{
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input [type="submit"]{
+    background-color: aquamarine;
+    color: black;
+    cursor: pointer;
+}
+
+span{
+    display: block;
+    margin-top: 5px;
+}
