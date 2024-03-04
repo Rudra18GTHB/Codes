@@ -21,6 +21,7 @@ int min_node(struct node* root);
 int node_count(struct node* root);
 int external_nodes(struct node* root);
 int internal_nodes(struct node* root);
+int tree_height(struct node* root);
 // void node_display_levelorder(struct node* root);
 // void enqueue(struct node* root);
 // int isEmpty();
@@ -29,7 +30,7 @@ int internal_nodes(struct node* root);
 int main(){
     // que.r=-1;    
     // que.f=0;
-    int x, min, max, option, ecount=0, icount =0;
+    int x, min, max, option, total, height, ecount=0, icount =0;
 
     while(1){
         printf("\nSelect option\n");
@@ -39,7 +40,8 @@ int main(){
         printf("4. Max and Min\n");
         printf("5. Total Number of Nodes\n");
         printf("6. Total Number of Internal and External nodes\n");
-        printf("7. Exit\n");
+        printf("7. Height\n");
+        printf("8. Exit\n");
         scanf("%d",&option);
         switch (option){
             case 1:
@@ -64,7 +66,8 @@ int main(){
                 printf("Maximum number is: %d\n",max);
                 break;
             case 5:
-                printf("Total Number of nodes is: %d\n",node_count(root));
+                total = node_count(root);
+                printf("Total Number of nodes is: %d\n",total);
                 break;
             case 6:
                 ecount = external_nodes(root);
@@ -73,12 +76,16 @@ int main(){
                 printf("Total number of Internal nodes is: %d\n",icount);
                 break;
             case 7:
+                height = tree_height(root);
+                printf("Height of tree is: %d\n",height);
+                break;
+            case 8:
                 break;
             default:
                 printf("Invalid option\n");
                 break;
         }
-        if (option==7){
+        if (option==8){
             break;
         }
     }
@@ -86,28 +93,34 @@ int main(){
 }
 
 int internal_nodes(struct node* root){
-    if(root == NULL || root->left == NULL && root->right == NULL){
-        return 0;
-    }
-    else{
-        return (external_nodes(root->left)+ external_nodes(root->right)+1);
-    }
+    if(root==NULL||(root->left==NULL && root->right==NULL)){
+		return 0;
+	}
+	else{
+		return(internal_nodes(root->left)+internal_nodes(root->right)+1);
+	}
 }
 
-int internal_nodes(struct node* root){
-    if(root==NULL ){
-
-    }
+int external_nodes(struct node* root){
+    if(root==NULL){
+		return 0;
+	}
+	else if(root->left==NULL && root->right==NULL){
+		return 1;
+	}
+	else{
+		return (external_nodes(root->left)+external_nodes(root->right));
+	}
 }
 
-int height(struct node* root){
+int tree_height(struct node* root){
     int leftheight, rightheight;
     if(root == NULL){
         return 0;
     }
     else{
-        leftheight = height(root->left);
-        rightheight = height(root->right);
+        leftheight = tree_height(root->left);
+        rightheight = tree_height(root->right);
         if(leftheight>rightheight){
             return leftheight+1;
         }
@@ -177,15 +190,11 @@ void node_display_postorder(struct node* root){
 }
 
 int node_count(struct node* root){
-    if(root == NULL){
-        return 0;
-    }
-    else if(root->left == NULL && root->right == NULL){
-        return 1;
-    }
-    else{
-        return (node_count(root->left)+ node_count(root->right)+1);
-    }
+    if(root==NULL)
+		return 0;
+	else{
+		return(node_count(root->left) + node_count(root->right)+1);
+	}
 }
 
 // void enqueue(struct node* root){
