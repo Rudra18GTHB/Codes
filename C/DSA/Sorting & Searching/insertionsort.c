@@ -8,12 +8,11 @@ int main()
     for (int i = 1; i < n; i++)
     {
         key=a[i];
-        j=i;
-        while(j>=0 && a[j-1]>key){ //Checking two conditions the previous elemnt is larger or not and stop the loop if reaching at the end
-            a[j]=a[j-1]; 
-            j--;   //Decrementing to check with next previous element
+        while(i>=0 && a[i-1]>key){ //Checking two conditions the previous elemnt is larger or not and stop the loop if reaching at the end
+            a[i]=a[i-1]; 
+            i--;   //Decrementing to check with next previous element
         }
-        a[j]=key;
+        a[i]=key;
     }
     for (int k = 0; k < n; k++)
     {
