@@ -13,3 +13,5 @@ void towerofhanoi(int n, char src, char aux, char dest){
         towerofhanoi(n-1,dest,aux,src);
     }
 }
+
+//O(2^n)

@@ -21,3 +21,5 @@ int main()
     printf("Total Number of comparisons: %d",ccount);
     return 0;
 }
+
+//O(n^2)

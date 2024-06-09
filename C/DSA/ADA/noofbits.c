@@ -12,3 +12,5 @@ int bits(int n){
 void main(){
     printf("%d", bits(8));
 }
+
+//O(logn)

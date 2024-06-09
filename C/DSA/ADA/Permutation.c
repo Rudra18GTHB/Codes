@@ -20,3 +20,5 @@ void main(){
     int n= strlen(a);
     perm(a,0,n-1);
 }
+
+//O(n!)

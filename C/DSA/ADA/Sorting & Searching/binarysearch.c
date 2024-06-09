@@ -30,3 +30,5 @@ int main(int argc, char const *argv[])
     printf("Element is not found at any index");
     return 0;
 }
+
+//O(log n)

@@ -15,3 +15,5 @@ int main(int argc, char const *argv[])
     printf("Element Not Found");
     return 0;
 }
+
+//O(n)

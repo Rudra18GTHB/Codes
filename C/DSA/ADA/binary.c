@@ -13,3 +13,5 @@ int main(){
     printf("%d ", binary(10));
     return 0;
 }
+
+//O(logn)

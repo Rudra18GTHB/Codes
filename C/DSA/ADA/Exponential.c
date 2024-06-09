@@ -35,3 +35,5 @@ int main()
     printf("%d",power);
     return 0;
 }
+
+//O(logn)
