@@ -35,22 +35,16 @@ void quicksort(int a[], int low, int high){
 }
 
 int partition(int a[], int low,int high){
-    int pivot=a[low];
-    int i=low;
-    int j=high;
-    while(i<=j){
-        while(a[i]<=pivot){
+    int pivot = a[high];
+    int i = low-1;
+    for(int j=low; j<=high-1; j++){
+        if(a[j]<pivot){
             i++;
-        }
-        while(a[i]>=pivot){
-            j--;
-        }
-        if(i<j){
             swap(a,i,j);
         }
     }
-    swap(a,low,j);
-    return j;
+    swap(a,i+1,high);
+    return i+1;
 }
 
 void swap(int arr[],int a,int b){
